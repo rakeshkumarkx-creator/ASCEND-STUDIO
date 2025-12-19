@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RKX STUDIO</title>
+<meta name="description" content="PDF • Excel • Banner • Logo • Website • Java/Python — Fast, clean, affordable.">
+<meta property="og:title" content="RKX Studio — Business Profile">
+<meta property="og:description" content="PDF Editing, Excel Formatting, Banner/Logo Design, Simple Websites & Coding Help.">
+<meta property="og:image" content="business-profile.jpg">
+
+<style>
+:root{
+  --bg:#0b0e14; --panel:#121726; --muted:#8a93a6; --text:#e9ecf1;
+  --line:#1a2232; --brand:#5eead4; --brand2:#60a5fa;
+  --accent:linear-gradient(135deg,var(--brand),var(--brand2));
+  --r:18px; --sh:0 10px 30px rgb(0 0 0 / 28%);
+  --wrap:min(1120px,92vw);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:
+radial-gradient(1200px 600px at 80% -10%,rgba(96,165,250,.14),transparent),
+radial-gradient(900px 400px at -10% 20%,rgba(94,234,212,.12),transparent),var(--bg);
+color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{text-decoration:none;color:inherit} img{display:block;max-width:100%}
+.container{width:var(--wrap);margin-inline:auto}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.7);
+backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #131b2a}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brandbox{display:flex;align-items:center;gap:12px}
+.logo{width:38px;height:38px;border-radius:10px;background:var(--accent);box-shadow:var(--sh)}
+.brand{font-weight:800;letter-spacing:.2px}
+.tag{color:var(--muted);font-size:12px;margin-top:-4px}
+.links{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#131826;font-weight:700;color:#f0f6ff}
+.btn.primary{background:var(--accent);color:#08121a;border:none}
+.hamb{display:none;border:1px solid rgba(255,255,255,.12);background:#121826;color:#eaf2ff;border-radius:10px;padding:8px 10px}
+
+/* Sections */
+section{padding:46px 0;border-top:1px solid #121b2a} section:first-of-type{border-top:0}
+.head{display:flex;align-items:end;justify-content:space-between;margin-bottom:14px}
+.head h2{margin:0;font:800 clamp(20px,3.5vw,28px)/1.15 system-ui,sans-serif}
+.head p{margin:6px 0 0;color:var(--muted)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#b8c2d6;font-size:12px}
+
+/* ✅ FIXED: Neon text (no gradient bars) */
+.title{
+  font-weight:900; letter-spacing:-.3px;
+  font-size:clamp(28px,5.2vw,50px); line-height:1.1;
+  margin:.6rem 0 .4rem; color:#ffffff;
+  text-shadow:0 0 10px rgba(94,234,212,.6),0 0 20px rgba(94,234,212,.35);
+}
+.title .grad{
+  background:none; -webkit-background-clip:unset;
+  color:#5eead4;
+  text-shadow:0 0 12px rgba(94,234,212,.8),0 0 24px rgba(94,234,212,.5);
+}
+
+.subtitle{color:#cdd3df;max-width:68ch}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:18px;box-shadow:var(--sh)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:#0f1624;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px}
+.stat b{font-size:24px}
+.heroimg{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+
+/* Services */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card.service{min-height:160px}
+.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(94,234,212,.14);color:#b8fff1;font-weight:800;font-size:12px;border:1px solid rgba(94,234,212,.35)}
+.muted{color:var(--muted)}
+
+/* Work (image tiles) */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#0b111b center/cover no-repeat;
+border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 0 40px rgba(80,180,255,.2)}
+.tile .ring{position:absolute;inset:10px;border-radius:22px;border:2px solid rgba(94,234,212,.35)}
+.label{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:1px solid rgba(255,255,255,.2)}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price{padding:20px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1)}
+.rupee{font-size:28px;font-weight:900}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e1422;color:#f1f6ff}
+textarea{min-height:120px;resize:vertical}
+
+/* Footer */
+footer{padding:22px 0;border-top:1px solid #121b2a;color:var(--muted)}
+
+/* Mobile */
+@media (max-width:980px){ .hero{grid-template-columns:1fr;gap:18px} }
+@media (max-width:900px){
+  .links{display:none}
+  .hamb{display:inline-flex}
+  .nav.open .links{display:flex;position:absolute;left:0;right:0;top:58px;background:rgba(11,14,20,.98);padding:10px;gap:8px;border-bottom:1px solid #131b2a;z-index:60;overflow:auto}
+  .nav.open .links .btn{flex:0 0 auto}
+  section{padding:34px 0}
+  .stats{grid-template-columns:1fr}
+  .grid,.gallery,.pricing,.contact{grid-template-columns:1fr}
+  .btn{min-height:44px;width:100%}
+}
+@media (max-width:600px){
+  .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+  .title{font-size:clamp(24px,7.5vw,34px)}
+  .subtitle{font-size:15px}
+}
+@media (max-width:400px){
+  .gallery{grid-template-columns:1fr}
+  .tile{border-radius:12px}
+  .card,.price{padding:14px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav" id="nav">
+    <div class="brandbox">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div class="brand">RKX STUDIO</div>
+        <div class="tag">PDF • Excel • Banner • Logo • Website • Java/Python</div>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#services" class="btn">Services</a>
+      <a href="#work" class="btn">Work</a>
+      <a href="#pricing" class="btn">Pricing</a>
+      <a href="#contact" class="btn primary">Get a Quote</a>
+    </div>
+    <button class="hamb" id="hamb" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="kicker">Fast • Affordable • Reliable</span>
+      <h1 class="title">
+        I help with <span class="grad">PDF editing, Excel sheets, banners, logos, simple websites & Java/Python tasks</span>.
+      </h1>
+      <p class="subtitle">Neon dark look with clean grids, perfect for desktop & mobile. Quick WhatsApp support and unlimited small revisions.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+        <a class="btn primary" href="#contact">Get a Free Quote</a>
+        <a class="btn" href="#pricing">See Pricing</a>
+        <a class="btn" href="https://wa.me/919113798955?text=Hi%20Rakesh%2C%20I%20need%20PDF%2FExcel%2FBanner%2FLogo%2FWebsite%2FJava-Python%20help" target="_blank" rel="noopener">WhatsApp Me</a>
+      </div>
+    </div>
+    <div class="card heroimg">
+      <img src="business-profile.jpg" alt="RKX Studio business profile">
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="head"><h2>Services</h2><p>Your files, perfectly formatted — every time.</p></div>
+    <div class="grid">
+      <article class="card service"><span class="chip">PDF</span><h3>PDF Editing & Conversion</h3><p class="muted">Edit text, merge/split, convert PDF⇄Word/Excel, fillable forms, compress & clean scans.</p></article>
+      <article class="card service"><span class="chip">Excel</span><h3>Excel Data Entry & Formatting</h3><p class="muted">Tables, basic formulas (SUM/IF/VLOOKUP), data cleanup, CSV import.</p></article>
+      <article class="card service"><span class="chip">Design</span><h3>Banner & Poster (Canva)</h3><p class="muted">Business banners, festival posts, YouTube thumbnails, social posts.</p></article>
+      <article class="card service"><span class="chip">Logo</span><h3>Simple & Modern Logos</h3><p class="muted">Text/initial marks, clean PNG/JPG + transparent files.</p></article>
+      <article class="card service"><span class="chip">Web</span><h3>Simple Website Development</h3><p class="muted">1-page portfolios, small business sites, landing pages — mobile-friendly.</p></article>
+      <article class="card service"><span class="chip">Code</span><h3>Java & Python Tasks</h3><p class="muted">Basic scripts, small programs, debugging, simple automation.</p></article>
+    </div>
+  </section>
+
+  <!-- WORK (image tiles) -->
+  <section id="work">
+    <div class="head"><h2>Sample Work</h2><p>Real previews (from your images).</p></div>
+    <div class="gallery">
+      <div class="tile" style="background-image:url('pdf-editing.jpg')"><div class="ring"></div><div class="label">PDF — Demo</div></div>
+      <div class="tile" style="background-image:url('banner-neon.jpg')"><div class="ring"></div><div class="label">Banner — Neon</div></div>
+      <div class="tile" style="background-image:url('logo-demo.jpg')"><div class="ring"></div><div class="label">Logo — RKX</div></div>
+      <div class="tile" style="background-image:url('resume-demo.jpg')"><div class="ring"></div><div class="label">Resume — 1-Page</div></div>
+      <div class="tile" style="background-image:url('poster-demo.jpg')"><div class="ring"></div><div class="label">Poster — Promo</div></div>
+      <div class="tile" style="background-image:url('coding-demo.jpg')"><div class="ring"></div><div class="label">Coding — Java/Python</div></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="head"><h2>Simple Pricing</h2><p>No surprises. Fast delivery. Unlimited small revisions.</p></div>
+    <div class="pricing">
+      <div class="price"><h3>Basic</h3><div class="rupee">₹200</div><p class="muted">Good for small edits</p><ul><li>PDF edit OR 1 Excel task</li><li>1 banner / 1 simple logo</li><li>24–48h delivery</li></ul><a class="btn" href="#contact">Choose Basic</a></div>
+      <div class="price" style="border:2px solid rgba(94,234,212,.5)"><h3>Standard</h3><div class="rupee">₹400</div><p class="muted">Most popular</p><ul><li>Up to 10 PDF pages / 3 banners</li><li>Excel cleaning + formatting</li><li>Priority support</li></ul><a class="btn primary" href="#contact">Choose Standard</a></div>
+      <div class="price"><h3>Premium</h3><div class="rupee">₹700–₹1000</div><p class="muted">For larger projects</p><ul><li>Bulk PDFs / complex Excel</li><li>Brand kit: 5 banners + logo</li><li>Same-day options</li></ul><a class="btn" href="#contact">Choose Premium</a></div>
+      <div class="price"><h3>Website Dev</h3><div class="rupee">₹500–₹1500</div><p class="muted">Simple websites</p><ul><li>1-page portfolio / business site</li><li>Mobile responsive</li><li>Fast delivery</li></ul><a class="btn" href="#contact">Choose Website Dev</a></div>
+      <div class="price"><h3>Coding (Java/Python)</h3><div class="rupee">₹300–₹1200</div><p class="muted">Small programs & debugging</p><ul><li>Basic scripts / automation</li><li>Debugging & fixes</li><li>Small school/college tasks</li></ul><a class="btn" href="#contact">Choose Coding Task</a></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="head"><h2>Contact</h2><p>Share your file & requirements. I’ll reply quickly.</p></div>
+    <div class="contact">
+      <form onsubmit="sendMsg(event)" class="card">
+        <input id="name" placeholder="Your name" required>
+        <input id="email" type="email" placeholder="Your email (optional)">
+        <textarea id="msg" placeholder="Tell me what you need (PDF/Excel/Banner/Logo)…" required></textarea>
+        <button class="btn primary" type="submit">Send via WhatsApp</button>
+        <small class="muted">Or email: <a href="mailto:RAKESHKUMAR.KX@GMAIL.COM">RAKESHKUMAR.KX@GMAIL.COM</a></small>
+      </form>
+      <div class="card">
+        <h3 style="margin:0 0 8px">Quick Links</h3>
+        <p class="muted" style="margin:0 0 8px">CONTACT US</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#work">See Samples</a>
+          <a class="btn" href="https://wa.me/919113798955?text=Hi%20Rakesh%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© <span id="year"></span> Rakesh Kumar </div>
+    <div class="muted">Deoghar (Jharkhand)</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav'), hamb = document.getElementById('hamb');
+if(hamb){ hamb.addEventListener('click', ()=> nav.classList.toggle('open')); }
+function sendMsg(e){
+  e.preventDefault();
+  const name = encodeURIComponent(document.getElementById('name').value.trim());
+  const email = encodeURIComponent(document.getElementById('email').value.trim());
+  const msg = encodeURIComponent(document.getElementById('msg').value.trim());
+  const text = `Hi Rakesh, I am ${name}. ${email?`My email: ${email}. `:''}Here are my requirements: ${msg}`;
+  window.open(`https://wa.me/919113798955?text=${text}`,'_blank');
+}
+</script>
+</body>
+</html>
