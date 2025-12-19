@@ -1,187 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASCEND STUDIO – Smart Pricing</title>
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
-<style>
-body{
-  margin:0;
-  background:#0b1020;
-  font-family:system-ui, Arial;
-  color:#e5e7eb;
-}
-header{
-  padding:18px 24px;
-  border-bottom:1px solid #1f2937;
-  font-size:18px;
-}
-header b{color:#22c55e}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:40px 16px;
-}
-h2{
-  margin-bottom:24px;
-  font-size:22px;
-}
-
-.service{
-  display:grid;
-  grid-template-columns:1.4fr 0.6fr 0.6fr 0.6fr;
-  gap:12px;
-  align-items:center;
-  padding:18px;
-  background:#0f1629;
-  border:1px solid #1f2937;
-  border-radius:12px;
-  margin-bottom:14px;
-}
-.service p{
-  margin:4px 0;
-  font-size:13px;
-  color:#9ca3af;
-}
-
-input{
-  width:80px;
-  padding:7px;
-  border-radius:6px;
-  border:none;
-}
-
-.price{
-  font-weight:700;
-  color:#22c55e;
-}
-
-button{
-  background:#22c55e;
-  border:none;
-  padding:10px;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-}
-button:hover{background:#16a34a}
-
-footer{
-  text-align:center;
-  padding:30px 10px;
-  font-size:13px;
-  color:#9ca3af;
-}
-</style>
+  <title>RKX Studio – Digital Services</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  ASCEND <b>STUDIO</b> — Smart Service Pricing
+<header class="header">
+  <h2>RKX <span>STUDIO</span></h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Services</a>
+    <a href="cart.html">Cart</a>
+  </nav>
 </header>
 
-<div class="container">
-<h2>Services</h2>
+<section class="hero">
+  <h1>Professional Digital Services</h1>
+  <p>
+    Excel • Presentation • Poster • Logo • Website • Video Editing • Coding
+  </p>
+  <a class="btn" href="shop.html">View Services</a>
+</section>
 
-<!-- Excel -->
-<div class="service">
-  <div>
-    <strong>Excel Data Entry</strong>
-    <p>₹100 / sheet • 10+ → 10% off</p>
-  </div>
-  <input type="number" value="1" min="1" onchange="calc('excel',100,this.value,10)">
-  <div class="price" id="excel">₹100</div>
-  <button onclick="pay('Excel Data Entry',amount.excel)">Pay</button>
-</div>
+<section class="about">
+  <h2>About RKX Studio</h2>
+  <p>
+    RKX Studio is run by Rakesh Kumar.  
+    We provide affordable, fast & reliable digital services
+    for students, creators and small businesses.
+  </p>
+</section>
 
-<!-- Presentation -->
-<div class="service">
-  <div>
-    <strong>Presentation (PPT)</strong>
-    <p>₹150 / slide • 10+ → 15% off</p>
-  </div>
-  <input type="number" value="1" min="1" onchange="calc('ppt',150,this.value,15)">
-  <div class="price" id="ppt">₹150</div>
-  <button onclick="pay('Presentation Design',amount.ppt)">Pay</button>
-</div>
-
-<!-- Poster -->
-<div class="service">
-  <div>
-    <strong>Poster / Banner Design</strong>
-    <p>₹200 / design • 5+ → 10% off</p>
-  </div>
-  <input type="number" value="1" min="1" onchange="calc('poster',200,this.value,10)">
-  <div class="price" id="poster">₹200</div>
-  <button onclick="pay('Poster Design',amount.poster)">Pay</button>
-</div>
-
-<!-- Logo -->
-<div class="service">
-  <div>
-    <strong>Logo Design</strong>
-    <p>₹999 flat • 2 revisions</p>
-  </div>
-  <input type="number" value="1" disabled>
-  <div class="price" id="logo">₹999</div>
-  <button onclick="pay('Logo Design',999)">Pay</button>
-</div>
-
-<!-- Website -->
-<div class="service">
-  <div>
-    <strong>Website Development</strong>
-    <p>₹5000 / page • 5+ → 15% off</p>
-  </div>
-  <input type="number" value="1" min="1" onchange="calc('web',5000,this.value,15)">
-  <div class="price" id="web">₹5000</div>
-  <button onclick="pay('Website Development',amount.web)">Pay</button>
-</div>
-
-<!-- Video -->
-<div class="service">
-  <div>
-    <strong>Video Editing</strong>
-    <p>₹1500 / 5 min • 10+ min → 10% off</p>
-  </div>
-  <input type="number" value="5" min="5" step="5"
-    onchange="calc('video',300,this.value,10)">
-  <div class="price" id="video">₹1500</div>
-  <button onclick="pay('Video Editing',amount.video)">Pay</button>
-</div>
-
-<!-- Coding -->
-<div class="service">
-  <div>
-    <strong>Java / Python Task</strong>
-    <p>₹500 / task •  if(type === 'web'){
-    webAmount = total;
-    document.getElementById('webTotal').innerText = '₹' + total;
-  }
-}
-
-function pay(service, amount){
-  var options = {
-    key: "rzp_test_RngTMWT4t8ywBL",
-    amount: amount * 100,
-    currency: "INR",
-    name: "ASCEND STUDIO",
-    description: service,
-    prefill:{
-      name:"Rakesh",
-      email:"rakeshmehra.kx@gmail.com",
-      contact:"9113798955"
-    },
-    theme:{color:"#22c55e"}
-  };
-  new Razorpay(options).open();
-}
-</script>
+<footer>
+© 2025 RKX Studio
+</footer>
 
 </body>
 </html>
