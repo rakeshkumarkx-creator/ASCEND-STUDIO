@@ -9,63 +9,70 @@
 
 <style>
 body{
-  background:#0b0f1a;
-  color:#e5e7eb;
-  font-family:Arial, sans-serif;
   margin:0;
+  background:#0b1020;
+  font-family:system-ui, Arial;
+  color:#e5e7eb;
 }
 header{
-  background:#0e152b;
-  padding:16px 24px;
+  padding:18px 24px;
   border-bottom:1px solid #1f2937;
+  font-size:18px;
 }
-header h1 span{color:#22c55e}
+header b{color:#22c55e}
 
-.section{
+.container{
   max-width:900px;
   margin:auto;
-  padding:40px 20px;
+  padding:40px 16px;
 }
-.card{
-  background:#12182a;
-  border:1px solid #1f2937;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:20px;
+h2{
+  margin-bottom:24px;
+  font-size:22px;
 }
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+
+.service{
+  display:grid;
+  grid-template-columns:1.4fr 0.6fr 0.6fr 0.6fr;
   gap:12px;
-  flex-wrap:wrap;
+  align-items:center;
+  padding:18px;
+  background:#0f1629;
+  border:1px solid #1f2937;
+  border-radius:12px;
+  margin-bottom:14px;
 }
+.service p{
+  margin:4px 0;
+  font-size:13px;
+  color:#9ca3af;
+}
+
 input{
   width:80px;
-  padding:8px;
-  border-radius:8px;
+  padding:7px;
+  border-radius:6px;
   border:none;
 }
-.total{
+
+.price{
+  font-weight:700;
   color:#22c55e;
-  font-weight:bold;
 }
+
 button{
   background:#22c55e;
   border:none;
-  padding:10px 16px;
-  border-radius:10px;
+  padding:10px;
+  border-radius:8px;
   font-weight:600;
   cursor:pointer;
 }
 button:hover{background:#16a34a}
-.note{
-  font-size:13px;
-  color:#9ca3af;
-}
+
 footer{
   text-align:center;
-  padding:20px;
+  padding:30px 10px;
   font-size:13px;
   color:#9ca3af;
 }
@@ -75,67 +82,84 @@ footer{
 <body>
 
 <header>
-  <h1>ASCEND <span>STUDIO</span></h1>
+  ASCEND <b>STUDIO</b> — Smart Service Pricing
 </header>
 
-<section class="section">
-<h2>Smart Service Pricing</h2>
+<div class="container">
+<h2>Services</h2>
 
-<!-- EXCEL -->
-<div class="card">
-  <h3>📊 Excel Work</h3>
-  <p>₹100 per sheet</p>
-  <div class="row">
-    Quantity:
-    <input type="number" min="1" value="1"
-      onchange="calc('excel',100,this.value)">
-    <div class="total" id="excelTotal">₹100</div>
-    <button onclick="pay('Excel Work',excelAmount)">Pay</button>
+<!-- Excel -->
+<div class="service">
+  <div>
+    <strong>Excel Data Entry</strong>
+    <p>₹100 / sheet • 10+ → 10% off</p>
   </div>
-  <p class="note">10+ sheets → 10% discount auto applied</p>
+  <input type="number" value="1" min="1" onchange="calc('excel',100,this.value,10)">
+  <div class="price" id="excel">₹100</div>
+  <button onclick="pay('Excel Data Entry',amount.excel)">Pay</button>
 </div>
 
-<!-- WEBSITE -->
-<div class="card">
-  <h3>🌐 Website Development</h3>
-  <p>₹5000 Landing page</p>
-  <div class="row">
-    Quantity:
-    <input type="number" min="1" value="1"
-      onchange="calc('web',5000,this.value)">
-    <div class="total" id="webTotal">₹5000</div>
-    <button onclick="pay('Website Development',webAmount)">Pay</button>
+<!-- Presentation -->
+<div class="service">
+  <div>
+    <strong>Presentation (PPT)</strong>
+    <p>₹150 / slide • 10+ → 15% off</p>
   </div>
-  <p class="note">5+ pages → 15% discount auto applied</p>
+  <input type="number" value="1" min="1" onchange="calc('ppt',150,this.value,15)">
+  <div class="price" id="ppt">₹150</div>
+  <button onclick="pay('Presentation Design',amount.ppt)">Pay</button>
 </div>
 
-</section>
+<!-- Poster -->
+<div class="service">
+  <div>
+    <strong>Poster / Banner Design</strong>
+    <p>₹200 / design • 5+ → 10% off</p>
+  </div>
+  <input type="number" value="1" min="1" onchange="calc('poster',200,this.value,10)">
+  <div class="price" id="poster">₹200</div>
+  <button onclick="pay('Poster Design',amount.poster)">Pay</button>
+</div>
 
-<footer>
-© 2025 ASCEND STUDIO • Smart Bulk Pricing
-</footer>
+<!-- Logo -->
+<div class="service">
+  <div>
+    <strong>Logo Design</strong>
+    <p>₹999 flat • 2 revisions</p>
+  </div>
+  <input type="number" value="1" disabled>
+  <div class="price" id="logo">₹999</div>
+  <button onclick="pay('Logo Design',999)">Pay</button>
+</div>
 
-<script>
-let excelAmount=100, webAmount=800;
+<!-- Website -->
+<div class="service">
+  <div>
+    <strong>Website Development</strong>
+    <p>₹5000 / page • 5+ → 15% off</p>
+  </div>
+  <input type="number" value="1" min="1" onchange="calc('web',5000,this.value,15)">
+  <div class="price" id="web">₹5000</div>
+  <button onclick="pay('Website Development',amount.web)">Pay</button>
+</div>
 
-function calc(type, price, qty){
-  let total = price * qty;
+<!-- Video -->
+<div class="service">
+  <div>
+    <strong>Video Editing</strong>
+    <p>₹1500 / 5 min • 10+ min → 10% off</p>
+  </div>
+  <input type="number" value="5" min="5" step="5"
+    onchange="calc('video',300,this.value,10)">
+  <div class="price" id="video">₹1500</div>
+  <button onclick="pay('Video Editing',amount.video)">Pay</button>
+</div>
 
-  // BULK DISCOUNT LOGIC
-  if(type === 'excel' && qty >= 10){
-    total = total * 0.90; // 10% off
-  }
-  if(type === 'web' && qty >= 5){
-    total = total * 0.85; // 15% off
-  }
-
-  total = Math.round(total);
-
-  if(type === 'excel'){
-    excelAmount = total;
-    document.getElementById('excelTotal').innerText = '₹' + total;
-  }
-  if(type === 'web'){
+<!-- Coding -->
+<div class="service">
+  <div>
+    <strong>Java / Python Task</strong>
+    <p>₹500 / task •  if(type === 'web'){
     webAmount = total;
     document.getElementById('webTotal').innerText = '₹' + total;
   }
